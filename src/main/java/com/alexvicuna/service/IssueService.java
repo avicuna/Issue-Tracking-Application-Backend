@@ -5,6 +5,7 @@ import com.alexvicuna.model.Issue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -15,6 +16,10 @@ public class IssueService {
 
     public Optional<Issue> getIssue(Long id) {
         return issueRepository.findById(id);
+    }
+
+    public List<Issue> getAllIssues() {
+        return issueRepository.findAll();
     }
 
     public void createIssue(Issue issue) {
