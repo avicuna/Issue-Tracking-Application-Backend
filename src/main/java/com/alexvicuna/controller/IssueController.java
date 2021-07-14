@@ -25,7 +25,7 @@ public class IssueController {
     @GetMapping("/{id}")
     public ResponseEntity index(@PathVariable Long id) {
         Optional<Issue> issue = issueService.getIssue(id);
-        if(issue.isEmpty()) {
+        if(!issue.isPresent()) {
            return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(issue);
